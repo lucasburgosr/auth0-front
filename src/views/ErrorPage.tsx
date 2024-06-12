@@ -5,14 +5,14 @@ const ErrorPage = () => {
   let errorMessage: string;
 
   if (isRouteErrorResponse(error)) {
-    errorMessage = error.error?.message || error.statusText;
+    errorMessage = error.statusText;
   } else if (error instanceof Error) {
     errorMessage = error.message;
   } else if (typeof error === "string") {
     errorMessage = error;
   } else {
     console.error(error);
-    errorMessage = "Ocurrio un error inesperado.";
+    errorMessage = "Ocurrió un error inesperado.";
   }
 
   return (
@@ -30,14 +30,13 @@ const ErrorPage = () => {
                   Oops!
                 </h4>
                 <p className="mb-8 text-lg text-white">
-                  La página que estas intentando acceder no puede ser
-                  encontrada.
+                  La página que estás intentando acceder no puede ser encontrada.
                 </p>
                 <p>
                   <i>{errorMessage}</i>
                 </p>
                 <a
-                  href="javascript:void(0)"
+                  href="/"
                   className="hover:text-primary inline-block rounded-lg border border-white px-8 py-3 text-center text-base font-semibold text-white transition hover:bg-white"
                 >
                   Volver al Inicio
