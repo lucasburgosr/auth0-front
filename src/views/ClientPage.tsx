@@ -29,7 +29,7 @@ const ClientPage = () => {
 
       alert(responseData.message);
     } catch (error) {
-      alert("No puedes ver esta vista por no tienes permisos de Administrador")
+      alert("No puedes ver esta vista por no tienes rol de Cliente")
       console.error(error);
     }
   };
