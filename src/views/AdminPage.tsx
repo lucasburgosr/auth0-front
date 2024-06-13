@@ -29,6 +29,19 @@ const AdminPage = () => {
 
       alert(responseData.message);
     } catch (error) {
+      let errorMessage = "Ocurrió un error inesperado.";
+
+      if (axios.isAxiosError(error)) {
+        if (error.response) {
+          errorMessage = `No puedes ver esta vista porque no tiene permisos de administrador`;
+        } else if (error.request) {
+          errorMessage = "No se recibió respuesta del servidor.";
+        } else {
+          errorMessage = `Error en la configuración de la solicitud: ${error.message}`;
+        }
+      } else if (error instanceof Error) {
+        errorMessage = `Error: ${error.message}`;
+      }
       alert(error);
       console.error(error);
     }
