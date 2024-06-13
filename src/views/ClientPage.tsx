@@ -29,21 +29,7 @@ const ClientPage = () => {
 
       alert(responseData.message);
     } catch (error) {
-      let errorMessage = "Ocurrió un error inesperado.";
-
-      if (axios.isAxiosError(error)) {
-        if (error.response) {
-          errorMessage = `No puedes ver esta vista porque no tiene permisos de cliente`;
-        } else if (error.request) {
-          errorMessage = "No se recibió respuesta del servidor.";
-        } else {
-          errorMessage = `Error en la configuración de la solicitud: ${error.message}`;
-        }
-      } else if (error instanceof Error) {
-        errorMessage = `Error: ${error.message}`;
-      }
-
-      alert(error);
+      alert("No puedes ver esta vista por no tienes permisos de Administrador")
       console.error(error);
     }
   };
